@@ -24,20 +24,22 @@ var response1array = response1.components(separatedBy: " ")
 
 if (response1array.count > 1) {
     
-    let type:String = response1array[response1array.count - 1]
-    response1array.removeLast()  // remove the operator type that the user has specified
+    // Multioperand mode
     
-    if (type == "count") {
+    let type:String = response1array[response1array.count - 1]
+    response1array.removeLast()  // Removes the operator type that the user has specified
+    
+    if (type == "count") {      // Count function
         print(response1array.count)
     }
-    if (type == "avg") {
+    if (type == "avg") {        // Average function
         var result = 0;
         for number in response1array {
             result = Int(number)! + result
         }
         print(result / response1array.count)
     }
-    if (type == "fact") {
+    if (type == "fact") {       // Factorial function
         if (response1array.count == 1) {
             var fact: Int = 1
             var n: Int = Int(response1array[0])! + 1
@@ -46,11 +48,12 @@ if (response1array.count > 1) {
             }
             print(fact)
         } else {
-            print("Must be a single number")
+            print("To find the factorial, the given input must be a single number")
         }
     }
-    
 } else {
+    
+    // Single-operand mode
 
     let response2:String = readLine(strippingNewline: true)!
 
